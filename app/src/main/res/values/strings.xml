@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">GO SOPT Android</string>
+    <string name="welcome_to_go_android">Welcome to Go Android!</string>
+    <string name="id">ID</string>
+    <string name="edit_id">아이디를 입력하세요.</string>
+    <string name="login">login</string>
+    <string name="pw">PW</string>
+    <string name="edit_pw">비밀번호를 입력하세요.</string>
+    <string name="btn_signup">SIGN UP</string>
+    <string name="signup">SIGNUP</string>
+    <string name="name">이름</string>
+    <string name="et_name">이름을 입력하세요</string>
+    <string name="tv_specialty">특기</string>
+    <string name="et_specailty">특기를 입력하세요.</string>
+    <string name="login_success">로그인 성공!</string>
+    <string name="login_fail">로그인 실패!</string>
+    <string name="sign_success">회원가입이 완료되었습니다.</string>
+    <string name="sign_fail">회원가입 조건에 맞게 다시 입력해주세요.</string>
+
 </resources>
