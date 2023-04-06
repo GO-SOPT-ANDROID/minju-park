@@ -12,5 +12,9 @@
     <string name="et_name">이름을 입력하세요</string>
     <string name="tv_specialty">특기</string>
     <string name="et_specailty">특기를 입력하세요.</string>
+    <string name="login_success">로그인 성공!</string>
+    <string name="login_fail">로그인 실패!</string>
+    <string name="sign_success">회원가입이 완료되었습니다.</string>
+    <string name="sign_fail">회원가입 조건에 맞게 다시 입력해주세요.</string>
 
 </resources>

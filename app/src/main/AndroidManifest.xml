@@ -20,8 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".IntroduceActivity"/>
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".IntroduceActivity"
+            android:exported="false"/>
 
     </application>
 

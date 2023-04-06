@@ -17,8 +17,8 @@ class IntroduceActivity :AppCompatActivity(){
         //이름,특기 값 받아오기
         val name=intent.getStringExtra("name")
         val specialty=intent.getStringExtra("specialty")
-        binding.tvIntroduceName.text="이름 : "+name
-        binding.tvIntroduceSpecialty.text="특기 : "+specialty
+        binding.tvIntroduceName.text= "이름 : $name"
+        binding.tvIntroduceSpecialty.text= "특기 : $specialty"
 
     }
 }

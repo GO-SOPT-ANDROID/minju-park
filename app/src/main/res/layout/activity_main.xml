@@ -15,6 +15,8 @@
         android:text="@string/welcome_to_go_android"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -27,6 +29,8 @@
         android:text="@string/id"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
     <EditText
@@ -36,7 +40,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:autofillHints=""
         android:hint="@string/edit_id"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +56,8 @@
         android:text="@string/pw"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <EditText
@@ -66,6 +71,8 @@
         android:hint="@string/edit_pw"
         android:inputType="textPassword"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pw" />
 
 
@@ -78,6 +85,8 @@
         android:layout_marginEnd="40dp"
         android:paddingVertical="17dp"
         android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pw" />
 
     <Button
@@ -88,6 +97,8 @@
         android:layout_marginEnd="40dp"
         android:paddingVertical="17dp"
         android:text="@string/btn_signup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 

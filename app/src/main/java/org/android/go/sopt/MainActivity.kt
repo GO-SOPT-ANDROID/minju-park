@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             //signupActivity의 id,specailty 값 = 입력 값 같을 때 로그인 성공 toast
 
             if (binding.etId.text.toString() == id && binding.etPw.text.toString() == pw) {
-                Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, IntroduceActivity::class.java).apply {
                     //name,specailty 데이터 전달
                     putExtra("name", name)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "로그인 실패!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.login_fail), Toast.LENGTH_SHORT).show()
             }
 
         }

@@ -29,13 +29,13 @@ class SignUpActivity:AppCompatActivity() {
                     setResult(RESULT_OK,intent)
                     //조건에 맞을 시 회원가입 화면 종료 => 성공 스낵바
                     Snackbar.make(
-                        binding.root,"회원가입이 완료되었습니다.",Snackbar.LENGTH_SHORT
+                        binding.root,getString(R.string.sign_success),Snackbar.LENGTH_SHORT
                     ).show()
                     finish()
                     //조건에 맞지 않을 때 => 실패 스낵바
                 }else{
                     Snackbar.make(
-                        binding.root,"회원가입 조건에 맞게 다시 입력해주세요.",Snackbar.LENGTH_SHORT
+                        binding.root,getString(R.string.sign_fail),Snackbar.LENGTH_SHORT
                     ).show()
                 }
             }

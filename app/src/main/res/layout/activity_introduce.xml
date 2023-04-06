@@ -13,6 +13,8 @@
         android:layout_marginTop="70dp"
         android:contentDescription="TODO"
         app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/introduce_photo"
         tools:ignore="MissingConstraints"
@@ -25,6 +27,9 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:textSize="25sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_introduce_photo" />
 
     <TextView
@@ -34,6 +39,8 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_introduce_name" />
 
 
