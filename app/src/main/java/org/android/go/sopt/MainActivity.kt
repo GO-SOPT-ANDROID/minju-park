@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import org.android.go.sopt.Fragment.GalleryFragment
 import org.android.go.sopt.Fragment.HomeFragment
-import org.android.go.sopt.Fragment.SearchFragement
+import org.android.go.sopt.Fragment.SearchFragment
 import org.android.go.sopt.databinding.ActivityMainBinding
 
 
@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         startFragment(HomeFragment())
 
+        //기존의 setOnNavigationItemSelectedListener는 deprecated됨
+
         binding.bottomNavi.setOnItemSelectedListener { item->
             when(item.itemId){
                 R.id.menu_home -> {
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(GalleryFragment())
                 }
                 R.id.menu_search -> {
-                    changeFragment(SearchFragement())
+                    changeFragment(SearchFragment())
                 }
             }
             true
@@ -38,9 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun startFragment(fragment: Fragment) {
         supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fcv, fragment)
-            .commit()
+            .beginTransaction() //프래그먼트 트랜잭션을 시작하는 메서드
+            .add(R.id.fcv, fragment) //해당 ID를 가진 Container View에 다음 파라미터에 존재하 Fragment를 쌓는다.
+            .commit() //모든 트랙잭션을 마침, 트랜잭션 시작
     }
     private fun changeFragment(fragment: Fragment){
         supportFragmentManager

@@ -14,7 +14,9 @@ import org.android.go.sopt.databinding.FragmentHomeBinding
 
 
 class HomeFragment:Fragment(){
+    //_binding은 Nullable
     private var _binding: FragmentHomeBinding?=null
+    //binding은 Nullable하지 않음
     private val binding:FragmentHomeBinding
         get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
 
@@ -51,6 +53,7 @@ class HomeFragment:Fragment(){
             singer="서동현"
         )
     )
+    //메모리 누수를 방지하기 위해 ragment에서 ViewBinding은 onCreateView에서 생성
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,6 +73,7 @@ class HomeFragment:Fragment(){
         binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
     }
 
+    //메모리 누수를 방지하기 위해 null 해제를 직접
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

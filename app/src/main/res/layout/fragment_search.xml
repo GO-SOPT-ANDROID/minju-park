@@ -3,4 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="@string/blank_search"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

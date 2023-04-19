@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import org.android.go.sopt.databinding.FragmentSearchBinding
 
 
-class SearchFragement:Fragment(){
+class SearchFragment:Fragment(){
     private var _binding: FragmentSearchBinding?=null
     private val binding:FragmentSearchBinding
         get() = requireNotNull(_binding){ " _binding이 null입니다!" }

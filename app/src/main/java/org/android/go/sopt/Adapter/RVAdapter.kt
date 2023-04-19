@@ -19,16 +19,18 @@ class RVAdapter (context: Context): RecyclerView.Adapter<RVAdapter.RVViewHolder>
             binding.tvSinger.text = data.singer
         }
     }
-
+    //viewHolder에 들어갈 View를 만들어주는 함수 / 전체 Recyclerview
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVViewHolder {
         val binding = ItemSongBinding.inflate(inflater, parent, false)
         return RVViewHolder(binding)
     }
 
+    //각각의 ViewHolder에 데이터를 매칭하는 함수
     override fun onBindViewHolder(holder: RVViewHolder, position: Int) {
         holder.onBind(itemList[position])
     }
 
+    //데이터 리스트의 아이템 갯수 리턴 -> itemList의 갯수
     override fun getItemCount():Int{
         return itemList.size
     }

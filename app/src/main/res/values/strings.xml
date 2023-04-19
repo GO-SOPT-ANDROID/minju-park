@@ -22,5 +22,7 @@
     <string name="menu_gallery">갤러리</string>
     <string name="menu_search">검색</string>
     <string name="minju_s_playlist">Minju\'s playlist 🎧</string>
+    <string name="blank_gallery">BLANK GALLERY</string>
+    <string name="blank_search">BLANK SEARCH</string>
 
 </resources>
