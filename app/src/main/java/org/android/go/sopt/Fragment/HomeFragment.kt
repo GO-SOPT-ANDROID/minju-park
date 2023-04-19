@@ -1,0 +1,81 @@
+package org.android.go.sopt.Fragment
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ConcatAdapter
+import org.android.go.sopt.Adapter.HAdapter
+import org.android.go.sopt.Adapter.RVAdapter
+import org.android.go.sopt.Data.RVData
+import org.android.go.sopt.R
+import org.android.go.sopt.databinding.FragmentHomeBinding
+
+
+class HomeFragment:Fragment(){
+    private var _binding: FragmentHomeBinding?=null
+    private val binding:FragmentHomeBinding
+        get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
+
+
+    private val playlist= listOf<RVData>(
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "55",
+            singer="Codekunst"
+        ),
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "ride",
+            singer="wave to warth"
+        ),
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "Big world",
+            singer="백예린"
+        ),
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "No Surprises",
+            singer="Radiohead"
+        ),
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "바다처럼",
+            singer="Dasutt"
+        ),
+        RVData(
+            image = R.drawable.introduce_photo,
+            song = "",
+            singer="서동현"
+        )
+    )
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View { // 이제 반환하는 View가 Null일 수 없기 때문에, ?를 지워주셔도 됩니다.
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // 대부분의 로직은 여기에 구현합니다.
+        val Header=HAdapter(requireContext())
+        val RV=RVAdapter(requireContext())
+
+        RV.setItemList(playlist)
+        binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+}
+
+
+

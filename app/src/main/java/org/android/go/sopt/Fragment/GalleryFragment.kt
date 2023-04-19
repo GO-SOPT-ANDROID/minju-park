@@ -1,16 +1,16 @@
-package org.android.go.sopt
+package org.android.go.sopt.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.android.go.sopt.databinding.FragmentSearchBinding
+import org.android.go.sopt.databinding.FragmentGalleryBinding
 
 
-class SearchFragement:Fragment(){
-    private var _binding: FragmentSearchBinding?=null
-    private val binding:FragmentSearchBinding
+class GalleryFragment:Fragment(){
+    private var _binding: FragmentGalleryBinding?=null
+    private val binding:FragmentGalleryBinding
         get() = requireNotNull(_binding){ " _binding이 null입니다!" }
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class SearchFragement:Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View { // 이제 반환하는 View가 Null일 수 없기 때문에, ?를 지워주셔도 됩니다.
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
