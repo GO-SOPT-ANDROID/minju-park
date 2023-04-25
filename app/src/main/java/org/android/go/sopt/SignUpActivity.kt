@@ -1,6 +1,8 @@
 package org.android.go.sopt
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import org.android.go.sopt.databinding.ActivitySignupBinding
@@ -39,7 +41,20 @@ class SignUpActivity:AppCompatActivity() {
                     ).show()
                 }
             }
+        //키보드 숨기기
+        binding.root.setOnClickListener{
+            hideKeyboard()
         }
+    }
+
+    private fun hideKeyboard() {
+        val inputManager: InputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(
+            this.currentFocus!!.windowToken,
+            InputMethodManager.HIDE_NOT_ALWAYS
+        )
+    }
     }
 
 

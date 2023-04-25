@@ -1,7 +1,10 @@
 package org.android.go.sopt
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Input
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
@@ -23,14 +26,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //데이터 받아오기
-        val  startForResult= registerForActivityResult(
+        val startForResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result: ActivityResult ->
             if (result.resultCode == RESULT_OK) {
-                id=result.data?.getStringExtra("id").toString()
-                pw=result.data?.getStringExtra("pw").toString()
-                name=result.data?.getStringExtra("name").toString()
-                specialty=result.data?.getStringExtra("specialty").toString()
+                id = result.data?.getStringExtra("id").toString()
+                pw = result.data?.getStringExtra("pw").toString()
+                name = result.data?.getStringExtra("name").toString()
+                specialty = result.data?.getStringExtra("specialty").toString()
 
             }
         }
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, IntroduceActivity::class.java).apply {
                     //name,specailty 데이터 전달
                     putExtra("name", name)
-                    putExtra("specialty",specialty)
+                    putExtra("specialty", specialty)
                 }
                 startActivity(intent)
             } else {
@@ -56,7 +59,16 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        binding.root.setOnClickListener { hideKeyboard() }
+    }
 
+    private fun hideKeyboard() {
+        val inputManager: InputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(
+            this.currentFocus!!.windowToken,
+            InputMethodManager.HIDE_NOT_ALWAYS
+        )
     }
 }
 
