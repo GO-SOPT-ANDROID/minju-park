@@ -69,7 +69,7 @@ class HomeFragment:Fragment(){
         val Header=HAdapter(requireContext())
         val RV=RVAdapter(requireContext())
 
-        RV.setItemList(playlist)
+        RV.submitList(playlist)
         binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
     }
 

@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         startFragment(HomeFragment())
 
-        //기존의 setOnNavigationItemSelectedListener는 deprecated됨
-
         binding.bottomNavi.setOnItemSelectedListener { item->
             when(item.itemId){
                 R.id.menu_home -> {
