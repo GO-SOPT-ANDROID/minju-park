@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import org.android.go.sopt.Adapter.HAdapter
 import org.android.go.sopt.Adapter.RVAdapter
+import org.android.go.sopt.Data.HomeViewModel
 import org.android.go.sopt.Data.RVData
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.FragmentHomeBinding
@@ -20,39 +22,8 @@ class HomeFragment:Fragment(){
     private val binding:FragmentHomeBinding
         get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
 
+    private val viewModel by viewModels<HomeViewModel>()
 
-    private val playlist= listOf<RVData>(
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "55",
-            singer="Codekunst"
-        ),
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "ride",
-            singer="wave to warth"
-        ),
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "Big world",
-            singer="백예린"
-        ),
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "No Surprises",
-            singer="Radiohead"
-        ),
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "바다처럼",
-            singer="Dasutt"
-        ),
-        RVData(
-            image = R.drawable.introduce_photo,
-            song = "",
-            singer="서동현"
-        )
-    )
     //메모리 누수를 방지하기 위해 ragment에서 ViewBinding은 onCreateView에서 생성
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,7 +40,7 @@ class HomeFragment:Fragment(){
         val Header=HAdapter(requireContext())
         val RV=RVAdapter(requireContext())
 
-        RV.submitList(playlist)
+        RV.submitList(viewModel.mokMusicList)
         binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
     }
 

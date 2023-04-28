@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         startFragment(HomeFragment())
 
-        binding.bottomNavi.setOnItemSelectedListener { item->
+        binding.bnvMain.setOnItemSelectedListener { item->
             when(item.itemId){
                 R.id.menu_home -> {
                     changeFragment(HomeFragment())
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_gallery->{
                     changeFragment(GalleryFragment())
                 }
-                R.id.menu_search -> {
+                else->{
                     changeFragment(SearchFragment())
                 }
             }
@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
     private fun startFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction() //프래그먼트 트랜잭션을 시작하는 메서드
-            .add(R.id.fcv, fragment) //해당 ID를 가진 Container View에 다음 파라미터에 존재하 Fragment를 쌓는다.
+            .add(R.id.fcv_main, fragment) //해당 ID를 가진 Container View에 다음 파라미터에 존재하 Fragment를 쌓는다.
             .commit() //모든 트랙잭션을 마침, 트랜잭션 시작
     }
     private fun changeFragment(fragment: Fragment){
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fcv,fragment)
+            .replace(R.id.fcv_main,fragment)
             .commit()
     }
 }
