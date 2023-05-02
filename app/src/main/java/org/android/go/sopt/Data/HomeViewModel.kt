@@ -11,7 +11,11 @@ class HomeViewModel:ViewModel() {
         RVData(R.drawable.introduce_photo, "Big world", "백예린"),
         RVData(R.drawable.introduce_photo, "No Surprises", "Radiohead"),
         RVData(R.drawable.introduce_photo, "바다처럼", "Dasutt"),
-        RVData(R.drawable.introduce_photo, "덫", "서동현")
+        RVData(R.drawable.introduce_photo, "덫", "서동현"),
+        RVData(R.drawable.introduce_photo,"집에 가는 길","하현상"),
+        RVData(R.drawable.introduce_photo,"Journey","woodz"),
+        RVData(R.drawable.introduce_photo,"Sun and Moon","Sam Kim")
+
     )
 
 }
