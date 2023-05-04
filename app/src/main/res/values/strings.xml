@@ -24,5 +24,6 @@
     <string name="minju_s_playlist">Minju\'s playlist 🎧</string>
     <string name="blank_gallery">BLANK GALLERY</string>
     <string name="blank_search">BLANK SEARCH</string>
+    <string name="delete">delete</string>
 
 </resources>
