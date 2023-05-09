@@ -1,19 +1,19 @@
-package org.android.go.sopt
+package org.android.go.sopt.presentation.home
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import org.android.go.sopt.Fragment.GalleryFragment
-import org.android.go.sopt.Fragment.HomeFragment
-import org.android.go.sopt.Fragment.SearchFragment
-import org.android.go.sopt.databinding.ActivityMainBinding
+import org.android.go.sopt.presentation.gallery.GalleryFragment
+import org.android.go.sopt.presentation.search.SearchFragment
+import org.android.go.sopt.R
+import org.android.go.sopt.databinding.ActivityHomeBinding
 
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         startFragment(HomeFragment())
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_home -> {
                     changeFragment(HomeFragment())
                 }
-                R.id.menu_gallery->{
+                R.id.menu_gallery ->{
                     changeFragment(GalleryFragment())
                 }
                 else->{

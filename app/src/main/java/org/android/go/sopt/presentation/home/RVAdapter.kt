@@ -1,4 +1,4 @@
-package org.android.go.sopt.Adapter
+package org.android.go.sopt.presentation.home
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.android.go.sopt.Data.RVData
+import org.android.go.sopt.data.music
 import org.android.go.sopt.databinding.ItemSongBinding
 
-class RVAdapter (context: Context): ListAdapter<RVData,RVAdapter.RVViewHolder>(MusicDiffUtil()) {
+class RVAdapter (context: Context): ListAdapter<music, RVAdapter.RVViewHolder>(MusicDiffUtil()) {
     private val inflater by lazy { LayoutInflater.from(context) }
-    private val itemList: List<RVData> = emptyList()
+    private val itemList: List<music> = emptyList()
     class RVViewHolder(private val binding: ItemSongBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: RVData) {
+        fun onBind(data: music) {
             binding.ivPhoto.setImageDrawable(binding.root.context.getDrawable(data.image))
             binding.tvTitle.text = data.song
             binding.tvSinger.text = data.singer
@@ -45,13 +45,13 @@ class RVAdapter (context: Context): ListAdapter<RVData,RVAdapter.RVViewHolder>(M
 */
 
 
-    class MusicDiffUtil:DiffUtil.ItemCallback<RVData>(){
-        override fun areItemsTheSame(oldItem: RVData, newItem: RVData): Boolean {
+    class MusicDiffUtil:DiffUtil.ItemCallback<music>(){
+        override fun areItemsTheSame(oldItem: music, newItem: music): Boolean {
             return oldItem.song==newItem.song
         }
 
         @SuppressLint("DiffUtilEquals")
-        override fun areContentsTheSame(oldItem: RVData, newItem: RVData): Boolean {
+        override fun areContentsTheSame(oldItem: music, newItem: music): Boolean {
             return oldItem==newItem
         }
     }

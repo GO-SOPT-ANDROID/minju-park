@@ -1,4 +1,4 @@
-package org.android.go.sopt.Fragment
+package org.android.go.sopt.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
-import org.android.go.sopt.Adapter.HAdapter
-import org.android.go.sopt.Adapter.RVAdapter
-import org.android.go.sopt.Data.HomeViewModel
-import org.android.go.sopt.Data.RVData
-import org.android.go.sopt.R
 import org.android.go.sopt.databinding.FragmentHomeBinding
 
 
@@ -37,8 +32,8 @@ class HomeFragment:Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // 대부분의 로직은 여기에 구현합니다.
-        val Header=HAdapter(requireContext())
-        val RV=RVAdapter(requireContext())
+        val Header= HAdapter(requireContext())
+        val RV= RVAdapter(requireContext())
 
         RV.submitList(viewModel.mokMusicList)
         binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
