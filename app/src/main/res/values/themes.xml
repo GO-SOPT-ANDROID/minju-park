@@ -13,4 +13,19 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextAppearance.black" parent="">
+        <item name="android:fontFamily">@font/dovemayo_gothic</item>
+        <item name="android:fontWeight">400</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextAppearance.white" parent="">
+        <item name="android:fontFamily">@font/dovemayo_gothic</item>
+        <item name="android:fontWeight">400</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
 </resources>

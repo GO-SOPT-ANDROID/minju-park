@@ -12,14 +12,18 @@
         android:theme="@style/Theme.GOSOPTAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.introduce.IntroduceActivity"
+                  android:exported="true"/>
+        <activity android:name=".presentation.signup.SignUpActivity"
+                  android:exported="true"/>
 
 
     </application>

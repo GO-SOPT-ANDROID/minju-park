@@ -16,11 +16,11 @@
 
     <TextView
         android:id="@+id/tv_title"
+        style="@style/TextAppearance.black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
-        android:fontFamily="@font/dovemayo_gothic"
         android:text="@string/home_song_title"
         android:textSize="23sp"
         android:textStyle="bold"
@@ -30,9 +30,9 @@
 
     <TextView
         android:id="@+id/tv_singer"
+        style="@style/TextAppearance.black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/dovemayo_gothic"
         android:text="@string/home_song_singer"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
