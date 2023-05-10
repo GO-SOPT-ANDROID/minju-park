@@ -1,7 +1,7 @@
 package org.android.go.sopt.presentation.home
 
 import androidx.lifecycle.ViewModel
-import org.android.go.sopt.data.music
+import org.android.go.sopt.data.local.music
 import org.android.go.sopt.R
 
 class HomeViewModel:ViewModel() {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.android.go.sopt.data.music
+import org.android.go.sopt.data.local.music
 import org.android.go.sopt.databinding.ItemSongBinding
 
 class RVAdapter (context: Context): ListAdapter<music, RVAdapter.RVViewHolder>(MusicDiffUtil()) {
