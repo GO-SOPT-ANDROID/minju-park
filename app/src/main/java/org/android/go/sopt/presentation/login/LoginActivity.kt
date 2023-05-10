@@ -61,7 +61,9 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-        binding.root.setOnClickListener { hideKeyboard() }
+        binding.root.setOnClickListener {
+            hideKeyboard()
+        }
     }
 
     private fun hideKeyboard() {
