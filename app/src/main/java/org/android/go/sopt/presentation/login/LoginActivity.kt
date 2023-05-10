@@ -10,14 +10,21 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import org.android.go.sopt.R
 import org.android.go.sopt.data.remote.ServicePool
+import org.android.go.sopt.data.remote.model.RequestSignInDto
+import org.android.go.sopt.data.remote.model.RequestSignUpDto
+import org.android.go.sopt.data.remote.model.ResponseSignInDto
+import org.android.go.sopt.data.remote.model.ResponseSignUpDto
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.introduce.IntroduceActivity
 import org.android.go.sopt.presentation.signup.SignUpActivity
+import org.android.go.sopt.util.makeToastMessage
+import retrofit2.Call
+import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
 
-
+    private val signInService= ServicePool.signInService
     lateinit var binding: ActivityLoginBinding
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     private lateinit var id: String
@@ -48,6 +55,32 @@ class LoginActivity : AppCompatActivity() {
 
         }
         binding.btnLogin.setOnClickListener {
+
+            signInService.signin(
+                RequestSignInDto(
+                    binding.etId.text.toString(),
+                    binding.etPw.text.toString(),
+                )
+            ).enqueue(object : retrofit2.Callback<ResponseSignInDto> {
+                override fun onResponse(
+                    call: Call<ResponseSignInDto>,
+                    response: Response<ResponseSignInDto>,
+                ) {
+                    if (response.isSuccessful) {
+
+                        response.body()?.message?.let { makeToastMessage(it) }
+                            ?: "로그인에 성공했습니다."
+                        if (!isFinishing) finish()
+                    } else {
+                        // 실패한 응답
+                        response.body()?.message?.let { makeToastMessage(it) }
+                            ?: "서버통신 실패(40X)"
+                    }
+                }
+                override fun onFailure(call: Call<ResponseSignInDto>, t: Throwable) {
+                    t.message?.let { makeToastMessage(it) }
+                }
+            })
 
             if (binding.etId.text.toString() == id && binding.etPw.text.toString() == pw) {
                 Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
