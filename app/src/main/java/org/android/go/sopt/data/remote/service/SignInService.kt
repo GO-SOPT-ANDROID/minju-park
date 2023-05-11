@@ -1,16 +1,13 @@
 package org.android.go.sopt.data.remote.service
 
-import org.android.go.sopt.data.remote.model.RequestSignInDto
-import org.android.go.sopt.data.remote.model.RequestSignUpDto
-import org.android.go.sopt.data.remote.model.ResponseSignInDto
-import org.android.go.sopt.data.remote.model.ResponseSignUpDto
+import org.android.go.sopt.data.remote.model.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface SignInService {
-    @POST("sign-up")
-    fun signin(
-        @Body request: RequestSignInDto,
-    ): Call<ResponseSignInDto>
+    @GET("/api/users?page=2")
+    fun ReqresData(
+    ): Call<ResponseReqresDto>
 }
