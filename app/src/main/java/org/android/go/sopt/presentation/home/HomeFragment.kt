@@ -11,9 +11,7 @@ import org.android.go.sopt.databinding.FragmentHomeBinding
 
 
 class HomeFragment:Fragment(){
-    //_binding은 Nullable
     private var _binding: FragmentHomeBinding?=null
-    //binding은 Nullable하지 않음
     private val binding:FragmentHomeBinding
         get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
 
@@ -24,7 +22,7 @@ class HomeFragment:Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View { // 이제 반환하는 View가 Null일 수 없기 때문에, ?를 지워주셔도 됩니다.
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }

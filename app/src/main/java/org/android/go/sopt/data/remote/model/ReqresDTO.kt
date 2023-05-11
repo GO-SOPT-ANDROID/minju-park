@@ -8,13 +8,13 @@ data class ResponseReqresDto(
     @SerialName("page")
     val page: Int,
     @SerialName("per_page")
-    val per_page: String,
+    val per_page: Int,
     @SerialName("total")
-    val total: String,
+    val total: Int,
     @SerialName("total_pages")
-    val total_pages: String,
+    val total_pages: Int,
     @SerialName("data")
-    val data: ReqresData,
+    val data: List<ReqresData>,
 ) {
     @Serializable
     data class ReqresData(

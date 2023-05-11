@@ -11,9 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import org.android.go.sopt.R
 import org.android.go.sopt.data.remote.ServicePool
 import org.android.go.sopt.data.remote.model.RequestSignInDto
-import org.android.go.sopt.data.remote.model.RequestSignUpDto
 import org.android.go.sopt.data.remote.model.ResponseSignInDto
-import org.android.go.sopt.data.remote.model.ResponseSignUpDto
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.introduce.IntroduceActivity
 import org.android.go.sopt.presentation.signup.SignUpActivity
