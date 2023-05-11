@@ -2,10 +2,10 @@ package org.android.go.sopt.presentation.home
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import org.android.go.sopt.presentation.gallery.GalleryFragment
 import org.android.go.sopt.presentation.search.SearchFragment
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityHomeBinding
+import org.android.go.sopt.presentation.search.GalleryFragment
 
 
 class HomeActivity : AppCompatActivity() {
@@ -38,9 +38,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun startFragment(fragment: Fragment) {
         supportFragmentManager
-            .beginTransaction() //프래그먼트 트랜잭션을 시작하는 메서드
-            .add(R.id.fcv_main, fragment) //해당 ID를 가진 Container View에 다음 파라미터에 존재하 Fragment를 쌓는다.
-            .commit() //모든 트랙잭션을 마침, 트랜잭션 시작
+            .beginTransaction()
+            .add(R.id.fcv_main, fragment)
+            .commit()
     }
     private fun changeFragment(fragment: Fragment){
         supportFragmentManager
