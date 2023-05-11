@@ -35,7 +35,6 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-
     private fun startFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
