@@ -47,7 +47,7 @@ class HomeFragment:Fragment(){
                 } else {
                     Snackbar.make(
                         binding.root,
-                        "프로필 조회 실패",
+                        "프로필 조회 실패1",
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }
@@ -55,7 +55,7 @@ class HomeFragment:Fragment(){
             override fun onFailure(call: Call<ResponseReqresDto>, t: Throwable) {
                 Snackbar.make(
                     binding.root,
-                    "프로필 조회 실패",
+                    "프로필 조회 실패2",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
