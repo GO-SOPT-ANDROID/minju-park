@@ -40,7 +40,12 @@ class HomeFragment:Fragment(){
                 response: Response<ResponseReqresDto>,
             ) {
                 if (response.isSuccessful) {
-                    Log.d("프로필 조회 성공\n", response.body()?.data.toString())
+                    Snackbar.make(
+                        binding.root,
+                        "프로필 조회 성공",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+
                     binding.rvMember.adapter = RVAdapter()
                         .apply {
                         submitList(response.body()?.data)

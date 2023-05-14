@@ -31,7 +31,7 @@ object ReqresApiFactory{
 
 object ServicePool {
     val signUpService = ApiFactory.create<SignUpService>()
-    val signInService=ApiFactory.create<SignInService>()
-    val reqresService=ReqresApiFactory.create<ReqresService>()
+    val signInService =ApiFactory.create<SignInService>()
+    val reqresService =ReqresApiFactory.create<ReqresService>()
 
 }

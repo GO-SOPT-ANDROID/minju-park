@@ -22,8 +22,6 @@ class RVAdapter:ListAdapter<ResponseReqresDto.ReqresData,RVAdapter.RVViewHolder>
                tvName.text=data.first_name
                tvEmail.text=data.email
            }
-
-
         }
     }
 
