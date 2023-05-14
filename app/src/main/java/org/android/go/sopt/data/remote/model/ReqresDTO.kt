@@ -15,6 +15,10 @@ data class ResponseReqresDto(
     val total_pages: Int,
     @SerialName("data")
     val data: List<ReqresData>,
+    @SerialName("support")
+    val support: Support,
+
+
 ) {
     @Serializable
     data class ReqresData(
@@ -28,5 +32,12 @@ data class ResponseReqresDto(
         val last_name: String,
         @SerialName("avatar")
         val avatar: String,
+    )
+    @Serializable
+    data class Support(
+        @SerialName("url")
+        val url: String,
+        @SerialName("text")
+        val text: String,
     )
 }

@@ -33,6 +33,7 @@ class HomeFragment:Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         memberService.getMembers().enqueue(object : retrofit2.Callback<ResponseReqresDto> {
             override fun onResponse(
                 call: Call<ResponseReqresDto>,
@@ -55,7 +56,7 @@ class HomeFragment:Fragment(){
             override fun onFailure(call: Call<ResponseReqresDto>, t: Throwable) {
                 Snackbar.make(
                     binding.root,
-                    "프로필 조회 실패2",
+                    "서버 통신 실패",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }

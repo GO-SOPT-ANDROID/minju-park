@@ -12,7 +12,6 @@ import org.android.go.sopt.databinding.ItemMemberBinding
 
 class RVAdapter:ListAdapter<ResponseReqresDto.ReqresData,RVAdapter.RVViewHolder>(MemberDiffUtil()) {
 
-    private val memberList: List<ResponseReqresDto.ReqresData> = emptyList()
     class RVViewHolder(private val binding:ItemMemberBinding ) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseReqresDto.ReqresData) {
@@ -41,7 +40,7 @@ class RVAdapter:ListAdapter<ResponseReqresDto.ReqresData,RVAdapter.RVViewHolder>
         override fun areItemsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
             return oldItem==newItem
         }
-        @SuppressLint("DiffUtilEquals")
+
         override fun areContentsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
             return oldItem==newItem
         }
