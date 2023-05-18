@@ -1,61 +1,47 @@
 package org.android.go.sopt.presentation.home
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.android.go.sopt.data.music
-import org.android.go.sopt.databinding.ItemSongBinding
+import com.bumptech.glide.Glide
+import org.android.go.sopt.data.remote.model.ResponseReqresDto
+import org.android.go.sopt.databinding.ItemMemberBinding
 
-class RVAdapter (context: Context): ListAdapter<music, RVAdapter.RVViewHolder>(MusicDiffUtil()) {
-    private val inflater by lazy { LayoutInflater.from(context) }
-    private val itemList: List<music> = emptyList()
-    class RVViewHolder(private val binding: ItemSongBinding) :
+class RVAdapter:ListAdapter<ResponseReqresDto.ReqresData,RVAdapter.RVViewHolder>(MemberDiffUtil()) {
+
+    class RVViewHolder(private val binding:ItemMemberBinding ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: music) {
-            binding.ivPhoto.setImageDrawable(binding.root.context.getDrawable(data.image))
-            binding.tvTitle.text = data.song
-            binding.tvSinger.text = data.singer
+        fun onBind(data: ResponseReqresDto.ReqresData) {
+           with(binding){
+               Glide.with(root)
+                   .load(data.avatar)
+                   .into(ivPhoto)
+               tvName.text=data.first_name
+               tvEmail.text=data.email
+           }
         }
     }
 
-    //viewHolder에 들어갈 View를 만들어주는 함수 / 전체 Recyclerview
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVViewHolder {
-        val binding = ItemSongBinding.inflate(inflater, parent, false)
+        val binding = ItemMemberBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RVViewHolder(binding)
     }
 
-    //각각의 ViewHolder에 데이터를 매칭하는 함수
     override fun onBindViewHolder(holder: RVViewHolder, position: Int) {
         holder.onBind(getItem(position))
     }
 
-/*
-    //데이터 리스트의 아이템 갯수 리턴 -> itemList의 갯수
-    override fun getItemCount():Int{
-        return itemList.size
-    }
-    fun setItemList(itemList: List<RVData>){
-        this.itemList = itemList.toList()
-        notifyDataSetChanged()
-    }
-*/
-
-
-    class MusicDiffUtil:DiffUtil.ItemCallback<music>(){
-        override fun areItemsTheSame(oldItem: music, newItem: music): Boolean {
-            return oldItem.song==newItem.song
+    class MemberDiffUtil:DiffUtil.ItemCallback<ResponseReqresDto.ReqresData>(){
+        override fun areItemsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
+            return oldItem==newItem
         }
 
-        @SuppressLint("DiffUtilEquals")
-        override fun areContentsTheSame(oldItem: music, newItem: music): Boolean {
+        override fun areContentsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
             return oldItem==newItem
         }
     }
-
-
 
 }

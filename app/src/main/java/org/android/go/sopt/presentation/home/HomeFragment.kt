@@ -1,50 +1,72 @@
 package org.android.go.sopt.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.ConcatAdapter
+import com.google.android.material.snackbar.Snackbar
+import org.android.go.sopt.data.remote.ServicePool
+import org.android.go.sopt.data.remote.model.ResponseReqresDto
 import org.android.go.sopt.databinding.FragmentHomeBinding
+import retrofit2.Call
+import retrofit2.Response
 
 
 class HomeFragment:Fragment(){
-    //_binding은 Nullable
     private var _binding: FragmentHomeBinding?=null
-    //binding은 Nullable하지 않음
     private val binding:FragmentHomeBinding
+
         get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
 
-    private val viewModel by viewModels<HomeViewModel>()
+    private val memberService=ServicePool.reqresService
 
-    //메모리 누수를 방지하기 위해 ragment에서 ViewBinding은 onCreateView에서 생성
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View { // 이제 반환하는 View가 Null일 수 없기 때문에, ?를 지워주셔도 됩니다.
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // 대부분의 로직은 여기에 구현합니다.
-        val Header= HAdapter(requireContext())
-        val RV= RVAdapter(requireContext())
 
-        RV.submitList(viewModel.mokMusicList)
-        binding.rvPlaylist.adapter=ConcatAdapter(Header,RV)
+        memberService.getMembers().enqueue(object : retrofit2.Callback<ResponseReqresDto> {
+            override fun onResponse(
+                call: Call<ResponseReqresDto>,
+                response: Response<ResponseReqresDto>,
+            ) {
+                if (response.isSuccessful) {
+                    Snackbar.make(
+                        binding.root,
+                        "프로필 조회 성공",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+
+                    binding.rvMember.adapter = RVAdapter()
+                        .apply {
+                        submitList(response.body()?.data)
+                    }
+                } else {
+                    Snackbar.make(
+                        binding.root,
+                        "프로필 조회 실패1",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            override fun onFailure(call: Call<ResponseReqresDto>, t: Throwable) {
+                Snackbar.make(
+                    binding.root,
+                    "서버 통신 실패",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
-
-    //메모리 누수를 방지하기 위해 null 해제를 직접
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
 }
 
 

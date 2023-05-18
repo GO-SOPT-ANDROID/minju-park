@@ -3,7 +3,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.android.go.sopt.databinding.ActivityIntroduceBinding
 
-
 class IntroduceActivity :AppCompatActivity(){
 
     lateinit var binding: ActivityIntroduceBinding

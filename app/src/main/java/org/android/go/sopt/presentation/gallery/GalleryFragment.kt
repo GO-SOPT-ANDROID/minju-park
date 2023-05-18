@@ -1,4 +1,4 @@
-package org.android.go.sopt.presentation.gallery
+package org.android.go.sopt.presentation.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.android.go.sopt.databinding.FragmentGalleryBinding
+import org.android.go.sopt.databinding.FragmentSearchBinding
 
 
 class GalleryFragment:Fragment(){
@@ -31,6 +32,7 @@ class GalleryFragment:Fragment(){
         super.onDestroyView()
         _binding = null
     }
+
 }
 
 

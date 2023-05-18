@@ -15,13 +15,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_name"
         style="@style/TextAppearance.black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/home_song_title"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
@@ -29,15 +28,14 @@
         app:layout_constraintTop_toTopOf="@+id/iv_photo" />
 
     <TextView
-        android:id="@+id/tv_singer"
+        android:id="@+id/tv_email"
         style="@style/TextAppearance.black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/home_song_singer"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        app:layout_constraintEnd_toEndOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

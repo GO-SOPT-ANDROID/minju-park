@@ -7,8 +7,9 @@
         style="@style/TextAppearance.black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fontFamily="@font/dovemayo_gothic"
         android:gravity="center"
-        android:text="@string/blank_gallery"
+        android:text="@string/blank_search"
         android:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
