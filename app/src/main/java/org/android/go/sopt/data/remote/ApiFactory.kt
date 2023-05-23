@@ -9,7 +9,7 @@ import org.android.go.sopt.data.remote.service.SignUpService
 import retrofit2.Retrofit
 
 object ApiFactory {
-    val retrofit: Retrofit by lazy {
+    val retrofit: Retrofit by lazy{
         Retrofit.Builder()
             .baseUrl(BuildConfig.AUTH_BASE_URL)
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
@@ -19,7 +19,7 @@ object ApiFactory {
 }
 
 object ReqresApiFactory{
-    val retrofitReqres: Retrofit by lazy {
+    val retrofitReqres: Retrofit by lazy{
         Retrofit.Builder()
             .baseUrl(BuildConfig.REQRES_BASE_URL)
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))

@@ -1,7 +1,6 @@
 package org.android.go.sopt.presentation.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,19 +12,18 @@ import org.android.go.sopt.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Response
 
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding: FragmentHomeBinding
 
-class HomeFragment:Fragment(){
-    private var _binding: FragmentHomeBinding?=null
-    private val binding:FragmentHomeBinding
+        get() = requireNotNull(_binding) { " 앗! _binding이 null이다!" }
 
-        get() = requireNotNull(_binding){ " 앗! _binding이 null이다!" }
-
-    private val memberService=ServicePool.reqresService
+    private val memberService = ServicePool.reqresService
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -43,18 +41,18 @@ class HomeFragment:Fragment(){
                     Snackbar.make(
                         binding.root,
                         "프로필 조회 성공",
-                        Snackbar.LENGTH_SHORT
+                        Snackbar.LENGTH_SHORT,
                     ).show()
 
                     binding.rvMember.adapter = RVAdapter()
                         .apply {
-                        submitList(response.body()?.data)
-                    }
+                            submitList(response.body()?.data)
+                        }
                 } else {
                     Snackbar.make(
                         binding.root,
                         "프로필 조회 실패1",
-                        Snackbar.LENGTH_SHORT
+                        Snackbar.LENGTH_SHORT,
                     ).show()
                 }
             }
@@ -62,12 +60,9 @@ class HomeFragment:Fragment(){
                 Snackbar.make(
                     binding.root,
                     "서버 통신 실패",
-                    Snackbar.LENGTH_SHORT
+                    Snackbar.LENGTH_SHORT,
                 ).show()
             }
         })
     }
 }
-
-
-

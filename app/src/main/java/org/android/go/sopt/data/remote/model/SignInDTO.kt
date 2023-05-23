@@ -10,6 +10,7 @@ data class RequestSignInDto(
     @SerialName("password")
     val password: String,
 )
+
 @Serializable
 data class ResponseSignInDto(
     @SerialName("status")

@@ -14,6 +14,7 @@ data class RequestSignUpDto(
     @SerialName("skill")
     val skill: String,
 )
+
 @Serializable
 data class ResponseSignUpDto(
     @SerialName("status")
