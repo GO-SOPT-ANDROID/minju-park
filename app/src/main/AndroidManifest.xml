@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
 
+    `<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />`
+
+
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -15,7 +19,7 @@
         android:theme="@style/Theme.GOSOPTAndroid"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".presentation.home.HomeActivity"
+            android:name=".presentation.login.LoginActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
