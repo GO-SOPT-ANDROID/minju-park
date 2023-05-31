@@ -1,10 +1,10 @@
-package org.android.go.sopt.presentation.home
+package org.android.go.sopt.data.local
 
 import androidx.lifecycle.ViewModel
 import org.android.go.sopt.R
 import org.android.go.sopt.data.local.music
 
-class HomeViewModel : ViewModel() {
+class musiclist : ViewModel() {
 
     val mokMusicList = listOf<music>(
         music(R.drawable.introduce_photo, "55", "Codekunst"),

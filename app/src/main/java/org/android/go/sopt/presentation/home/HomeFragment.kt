@@ -15,7 +15,6 @@ import retrofit2.Response
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding
-
         get() = requireNotNull(_binding) { " 앗! _binding이 null이다!" }
 
     private val memberService = ServicePool.reqresService
@@ -56,6 +55,7 @@ class HomeFragment : Fragment() {
                     ).show()
                 }
             }
+
             override fun onFailure(call: Call<ResponseReqresDto>, t: Throwable) {
                 Snackbar.make(
                     binding.root,

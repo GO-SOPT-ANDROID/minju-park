@@ -11,11 +11,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SignUpViewmodel : ViewModel() {
+
     private val _signUpResult: MutableLiveData<ResponseSignUpDto> = MutableLiveData()
     val signUpResult: LiveData<ResponseSignUpDto> = _signUpResult
 
     private val _errorResult: MutableLiveData<String> = MutableLiveData()
     val errorResult: LiveData<String> = _errorResult
+
+    private val _checkId: MutableLiveData<Boolean> = MutableLiveData()
+    val checkId: LiveData<Boolean> = _checkId
+
+    private val _checkPw: MutableLiveData<Boolean> = MutableLiveData()
+    val checkPw: LiveData<Boolean> = _checkPw
 
     fun signUp(id: String, password: String, name: String, skill: String) {
         signUpService.login(
