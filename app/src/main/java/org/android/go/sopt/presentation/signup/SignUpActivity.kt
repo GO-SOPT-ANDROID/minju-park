@@ -71,7 +71,7 @@ class SignUpActivity : AppCompatActivity() {
                         layoutEtPw.error = null
                         pwFlag = true
                     } else {
-                        layoutEtPw.error = "영문,숫자,특수문자 포함 6-12"
+                        layoutEtPw.error = "영문,숫자,특수문자 포함 6-12글자"
                     }
                     flagCheck()
                 }

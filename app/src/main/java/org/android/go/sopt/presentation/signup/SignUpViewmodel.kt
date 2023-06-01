@@ -18,7 +18,6 @@ class SignUpViewmodel : ViewModel() {
     private val _errorResult: MutableLiveData<String> = MutableLiveData()
     val errorResult: LiveData<String> = _errorResult
 
-
     fun signUp(id: String, password: String, name: String, skill: String) {
         signUpService.login(
             RequestSignUpDto(
