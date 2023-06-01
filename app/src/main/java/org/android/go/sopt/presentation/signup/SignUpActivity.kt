@@ -3,11 +3,11 @@ package org.android.go.sopt.presentation.signup
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
-import org.android.go.sopt.R
 import org.android.go.sopt.data.remote.ServicePool
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
@@ -19,12 +19,67 @@ class SignUpActivity : AppCompatActivity() {
     private val signUpService = ServicePool.signUpService
 
     private val viewModel by viewModels<SignUpViewmodel>()
+    private var idFlag = false
+    private var pwFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnSignup.isEnabled = false
+        textWatcher()
+        clickSignUp()
+        binding.root.setOnClickListener {
+            hideKeyboard()
+        }
+    }
+
+    private fun Regexid(id: String): Boolean {
+        return id.matches("^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{6,10}\$".toRegex())
+    }
+
+    private fun Regexpw(pw: String): Boolean {
+        return pw.matches("^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*?])[A-Za-z[0-9]!@#\$%^&*?]{6,12}$".toRegex())
+    }
+
+    private fun flagCheck() {
+        binding.btnSignup.isEnabled = idFlag && pwFlag
+    }
+
+    private fun textWatcher() {
+        with(binding) {
+            etId.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    if (Regexid(etId.text.toString())) {
+                        layoutEtId.error = null
+                        idFlag = true
+                    } else {
+                        layoutEtId.error = "영문,숫자 포함 6-12글자"
+                    }
+                    flagCheck()
+                }
+            })
+
+            etPw.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    if (Regexpw(etPw.text.toString())) {
+                        layoutEtPw.error = null
+                        pwFlag = true
+                    } else {
+                        layoutEtPw.error = "영문,숫자,특수문자 포함 6-12"
+                    }
+                    flagCheck()
+                }
+            })
+        }
+    }
+
+    private fun clickSignUp() {
         binding.btnSignup.setOnClickListener {
             viewModel.signUp(
                 binding.etId.text.toString(),
@@ -32,28 +87,19 @@ class SignUpActivity : AppCompatActivity() {
                 binding.etName.text.toString(),
                 binding.etSpecialty.text.toString(),
             )
-
             viewModel.signUpResult.observe(this) { signUpResult ->
                 startActivity(
                     Intent(
                         this@SignUpActivity,
                         LoginActivity::class.java,
                     ),
-
                 )
-
                 makeToastMessage(
                     signUpResult.message,
                 )
             }
-            signLimit()
-        }
-        // 키보드 숨기기
-        binding.root.setOnClickListener {
-            hideKeyboard()
         }
     }
-
     private fun hideKeyboard() {
         val inputManager: InputMethodManager =
             this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -61,31 +107,5 @@ class SignUpActivity : AppCompatActivity() {
             this.currentFocus!!.windowToken,
             InputMethodManager.HIDE_NOT_ALWAYS,
         )
-    }
-
-    private fun signLimit() {
-        if (binding.etId.length() in 6..10 && binding.etPw.length() in 8..12 &&
-            binding.etName.length() != 0 && binding.etSpecialty.length() != 0
-        ) {
-            val intent = Intent(this@SignUpActivity, LoginActivity::class.java).apply {
-                putExtra("id", binding.etId.text.toString())
-                putExtra("pw", binding.etPw.text.toString())
-                putExtra("name", binding.etName.text.toString())
-                putExtra("specialty", binding.etSpecialty.text.toString())
-            }
-            setResult(RESULT_OK, intent)
-            Snackbar.make(
-                binding.root,
-                getString(R.string.sign_success),
-                Snackbar.LENGTH_SHORT,
-            ).show()
-            finish()
-        } else {
-            Snackbar.make(
-                binding.root,
-                getString(R.string.sign_fail),
-                Snackbar.LENGTH_SHORT,
-            ).show()
-        }
     }
 }
