@@ -19,7 +19,7 @@
         android:theme="@style/Theme.GOSOPTAndroid"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name=".presentation.home.HomeActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
