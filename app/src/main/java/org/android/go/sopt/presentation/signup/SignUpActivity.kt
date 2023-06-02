@@ -53,11 +53,11 @@ class SignUpActivity : AppCompatActivity() {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(s: Editable?) {
-                    if (Regexid(etId.text.toString())||etId.text.isNullOrBlank()) {
+                    if (Regexid(etId.text.toString()) || etId.text.isNullOrBlank()) {
                         layoutEtId.error = null
                         idFlag = true
                     } else {
-                        layoutEtId.error = "영문,숫자 포함 6-12글자"
+                        layoutEtId.error = "영문,숫자 포함 6-10글자"
                     }
                     flagCheck()
                 }
@@ -67,7 +67,7 @@ class SignUpActivity : AppCompatActivity() {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(s: Editable?) {
-                    if (Regexpw(etPw.text.toString())||etPw.text.isNullOrBlank()) {
+                    if (Regexpw(etPw.text.toString()) || etPw.text.isNullOrBlank()) {
                         layoutEtPw.error = null
                         pwFlag = true
                     } else {
