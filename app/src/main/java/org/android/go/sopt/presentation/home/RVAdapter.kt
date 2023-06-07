@@ -5,19 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.load
 import org.android.go.sopt.data.remote.model.ResponseReqresDto
 import org.android.go.sopt.databinding.ItemMemberBinding
 
-class RVAdapter : ListAdapter<ResponseReqresDto.ReqresData, RVAdapter.RVViewHolder>(MemberDiffUtil()) {
+class RVAdapter :
+    ListAdapter<ResponseReqresDto.ReqresData, RVAdapter.RVViewHolder>(MemberDiffUtil()) {
 
     class RVViewHolder(private val binding: ItemMemberBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: ResponseReqresDto.ReqresData) {
             with(binding) {
-                Glide.with(root)
-                    .load(data.avatar)
-                    .into(ivPhoto)
+                ivPhoto.load(data.avatar)
                 tvName.text = data.first_name
                 tvEmail.text = data.email
             }
@@ -34,11 +33,17 @@ class RVAdapter : ListAdapter<ResponseReqresDto.ReqresData, RVAdapter.RVViewHold
     }
 
     class MemberDiffUtil : DiffUtil.ItemCallback<ResponseReqresDto.ReqresData>() {
-        override fun areItemsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
+        override fun areItemsTheSame(
+            oldItem: ResponseReqresDto.ReqresData,
+            newItem: ResponseReqresDto.ReqresData,
+        ): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ResponseReqresDto.ReqresData, newItem: ResponseReqresDto.ReqresData): Boolean {
+        override fun areContentsTheSame(
+            oldItem: ResponseReqresDto.ReqresData,
+            newItem: ResponseReqresDto.ReqresData,
+        ): Boolean {
             return oldItem == newItem
         }
     }
