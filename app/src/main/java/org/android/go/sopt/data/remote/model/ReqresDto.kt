@@ -18,7 +18,6 @@ data class ResponseReqresDto(
     @SerialName("support")
     val support: Support,
 
-
 ) {
     @Serializable
     data class ReqresData(
@@ -33,6 +32,7 @@ data class ResponseReqresDto(
         @SerialName("avatar")
         val avatar: String,
     )
+
     @Serializable
     data class Support(
         @SerialName("url")

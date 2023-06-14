@@ -1,10 +1,10 @@
-package org.android.go.sopt.presentation.home
+package org.android.go.sopt.data.local
 
 import androidx.lifecycle.ViewModel
-import org.android.go.sopt.data.local.music
 import org.android.go.sopt.R
+import org.android.go.sopt.data.local.music
 
-class HomeViewModel:ViewModel() {
+class musiclist : ViewModel() {
 
     val mokMusicList = listOf<music>(
         music(R.drawable.introduce_photo, "55", "Codekunst"),
@@ -13,10 +13,9 @@ class HomeViewModel:ViewModel() {
         music(R.drawable.introduce_photo, "No Surprises", "Radiohead"),
         music(R.drawable.introduce_photo, "바다처럼", "Dasutt"),
         music(R.drawable.introduce_photo, "덫", "서동현"),
-        music(R.drawable.introduce_photo,"집에 가는 길","하현상"),
-        music(R.drawable.introduce_photo,"Journey","woodz"),
-        music(R.drawable.introduce_photo,"Sun and Moon","Sam Kim")
+        music(R.drawable.introduce_photo, "집에 가는 길", "하현상"),
+        music(R.drawable.introduce_photo, "Journey", "woodz"),
+        music(R.drawable.introduce_photo, "Sun and Moon", "Sam Kim"),
 
     )
-
 }
