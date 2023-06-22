@@ -85,7 +85,7 @@ class SignUpActivity : AppCompatActivity() {
                 binding.etId.text.toString(),
                 binding.etPw.text.toString(),
                 binding.etName.text.toString(),
-                binding.etSpecialty.text.toString(),
+                binding.etSkill.text.toString(),
             )
             viewModel.signUpResult.observe(this) { signUpResult ->
                 startActivity(
