@@ -18,6 +18,9 @@ class LoginViewmodel : ViewModel() {
     private val _errorResult: MutableLiveData<String> = MutableLiveData()
     val errorResult: LiveData<String> = _errorResult
 
+    val _id: MutableLiveData<String> = MutableLiveData("")
+    val _pw: MutableLiveData<String> = MutableLiveData("")
+
     fun signIn(id: String, password: String) {
         signInService.signin(
             RequestSignInDto(
