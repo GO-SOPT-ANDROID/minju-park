@@ -17,7 +17,7 @@ class HomeViewmodel : ViewModel() {
     val errorResult: LiveData<String> = _errorResult
 
     fun getUser() {
-        reqresService.getMembers().enqueue(object : Callback<ResponseReqresDto> {
+        reqresService.getMembers(1).enqueue(object : Callback<ResponseReqresDto> {
             override fun onResponse(
                 call: Call<ResponseReqresDto>,
                 response: Response<ResponseReqresDto>,
