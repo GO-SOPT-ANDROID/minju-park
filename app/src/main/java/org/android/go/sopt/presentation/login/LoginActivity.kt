@@ -40,9 +40,6 @@ class LoginActivity : AppCompatActivity() {
                     IntroduceActivity::class.java,
                 ),
             )
-            makeToastMessage(
-                signInResult.message,
-            )
         }
     }
 

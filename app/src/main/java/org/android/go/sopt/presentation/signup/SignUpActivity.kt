@@ -8,7 +8,7 @@ import android.text.TextWatcher
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import org.android.go.sopt.data.remote.ServicePool
+import org.android.go.sopt.data.ServicePool
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.util.makeToastMessage
@@ -93,9 +93,6 @@ class SignUpActivity : AppCompatActivity() {
                         this@SignUpActivity,
                         LoginActivity::class.java,
                     ),
-                )
-                makeToastMessage(
-                    signUpResult.message,
                 )
             }
         }

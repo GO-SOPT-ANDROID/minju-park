@@ -3,17 +3,18 @@ package org.android.go.sopt.presentation.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.android.go.sopt.data.remote.ServicePool.signInService
-import org.android.go.sopt.data.remote.model.RequestSignInDto
-import org.android.go.sopt.data.remote.model.ResponseSignInDto
+import org.android.go.sopt.data.ServicePool.signInService
+import org.android.go.sopt.data.remote.request.RequestSignInDto
+import org.android.go.sopt.data.remote.response.BaseResponse
+import org.android.go.sopt.data.remote.response.ResponseSignInDto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginViewmodel : ViewModel() {
 
-    private val _signInResult: MutableLiveData<ResponseSignInDto> = MutableLiveData()
-    val signInResult: LiveData<ResponseSignInDto> = _signInResult
+    private val _signInResult: MutableLiveData<BaseResponse<ResponseSignInDto>> = MutableLiveData()
+    val signInResult: LiveData<BaseResponse<ResponseSignInDto>> = _signInResult
 
     private val _errorResult: MutableLiveData<String> = MutableLiveData()
     val errorResult: LiveData<String> = _errorResult
@@ -27,10 +28,10 @@ class LoginViewmodel : ViewModel() {
                 id,
                 password,
             ),
-        ).enqueue(object : Callback<ResponseSignInDto> {
+        ).enqueue(object : Callback <BaseResponse<ResponseSignInDto>> {
             override fun onResponse(
-                call: Call<ResponseSignInDto>,
-                response: Response<ResponseSignInDto>,
+                call: Call<BaseResponse<ResponseSignInDto>>,
+                response: Response<BaseResponse<ResponseSignInDto>>,
             ) {
                 if (response.isSuccessful) {
                     _signInResult.value = response.body()
@@ -39,7 +40,7 @@ class LoginViewmodel : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseSignInDto>, t: Throwable) {
+            override fun onFailure(call: Call<BaseResponse<ResponseSignInDto>>, t: Throwable) {
                 _errorResult.value = t.toString()
             }
         })

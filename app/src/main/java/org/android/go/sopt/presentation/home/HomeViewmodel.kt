@@ -3,8 +3,8 @@ package org.android.go.sopt.presentation.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.android.go.sopt.data.remote.ServicePool.reqresService
-import org.android.go.sopt.data.remote.model.ResponseReqresDto
+import org.android.go.sopt.data.ServicePool.reqresService
+import org.android.go.sopt.data.remote.response.ResponseReqresDto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

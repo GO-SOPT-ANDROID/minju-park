@@ -1,5 +1,4 @@
-package org.android.go.sopt.data.remote.service
-import org.android.go.sopt.data.remote.response.BaseResponse
+package org.android.go.sopt.data.service
 import org.android.go.sopt.data.remote.response.ResponseReqresDto
 import retrofit2.Call
 import retrofit2.http.GET
@@ -9,5 +8,5 @@ interface ReqresService {
     @GET("api/users?page=2")
     fun getMembers(
         @Query("page") page: Int,
-    ): Call<BaseResponse<ResponseReqresDto>>
+    ): Call<ResponseReqresDto>
 }

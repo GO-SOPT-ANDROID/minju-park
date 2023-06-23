@@ -1,4 +1,4 @@
-package org.android.go.sopt.data.remote
+package org.android.go.sopt.data
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
@@ -6,10 +6,10 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.android.go.sopt.BuildConfig
-import org.android.go.sopt.data.remote.Interceptor.AuthInterceptor
-import org.android.go.sopt.data.remote.service.ReqresService
-import org.android.go.sopt.data.remote.service.SignInService
-import org.android.go.sopt.data.remote.service.SignUpService
+import org.android.go.sopt.data.Interceptor.AuthInterceptor
+import org.android.go.sopt.data.service.ReqresService
+import org.android.go.sopt.data.service.SignInService
+import org.android.go.sopt.data.service.SignUpService
 import retrofit2.Retrofit
 
 object ApiFactory {

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.android.go.sopt.data.remote.ServicePool
-import org.android.go.sopt.data.remote.model.ResponseReqresDto
+import org.android.go.sopt.data.ServicePool
+import org.android.go.sopt.data.remote.response.ResponseReqresDto
 import org.android.go.sopt.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
