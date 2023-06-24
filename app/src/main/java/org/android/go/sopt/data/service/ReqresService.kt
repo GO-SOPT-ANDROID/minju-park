@@ -1,5 +1,5 @@
 package org.android.go.sopt.data.service
-import org.android.go.sopt.data.remote.response.ResponseReqresDto
+import org.android.go.sopt.data.model.response.ResponseReqresDto
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

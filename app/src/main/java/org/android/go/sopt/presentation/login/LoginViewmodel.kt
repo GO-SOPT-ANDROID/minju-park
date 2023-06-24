@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.android.go.sopt.data.ServicePool.signInService
-import org.android.go.sopt.data.remote.request.RequestSignInDto
-import org.android.go.sopt.data.remote.response.BaseResponse
-import org.android.go.sopt.data.remote.response.ResponseSignInDto
+import org.android.go.sopt.data.model.request.RequestSignInDto
+import org.android.go.sopt.data.model.response.BaseResponse
+import org.android.go.sopt.data.model.response.ResponseSignInDto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,7 +28,7 @@ class LoginViewmodel : ViewModel() {
                 id,
                 password,
             ),
-        ).enqueue(object : Callback <BaseResponse<ResponseSignInDto>> {
+        ).enqueue(object : Callback<BaseResponse<ResponseSignInDto>> {
             override fun onResponse(
                 call: Call<BaseResponse<ResponseSignInDto>>,
                 response: Response<BaseResponse<ResponseSignInDto>>,

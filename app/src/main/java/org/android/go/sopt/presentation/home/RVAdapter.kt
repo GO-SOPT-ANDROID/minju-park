@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import org.android.go.sopt.data.remote.response.ResponseReqresDto
+import org.android.go.sopt.data.model.response.ResponseReqresDto
 import org.android.go.sopt.databinding.ItemMemberBinding
 
 class RVAdapter :

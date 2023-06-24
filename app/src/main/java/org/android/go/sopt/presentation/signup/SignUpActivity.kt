@@ -24,6 +24,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         binding.vm = viewModel
         binding.btnSignup.isEnabled = false

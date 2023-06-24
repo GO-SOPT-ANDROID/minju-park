@@ -1,4 +1,4 @@
-package org.android.go.sopt.data.remote.response
+package org.android.go.sopt.data.model.response
 
 import kotlinx.serialization.SerialName
 
