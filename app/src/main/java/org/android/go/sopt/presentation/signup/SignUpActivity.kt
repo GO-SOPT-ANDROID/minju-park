@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import org.android.go.sopt.data.ServicePool
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
-import org.android.go.sopt.util.makeToastMessage
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.vm = viewModel
         binding.btnSignup.isEnabled = false
         textWatcher()
         clickSignUp()

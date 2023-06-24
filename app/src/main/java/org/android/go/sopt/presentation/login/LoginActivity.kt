@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.introduce.IntroduceActivity
 import org.android.go.sopt.presentation.signup.SignUpActivity
-import org.android.go.sopt.util.makeToastMessage
 
 class LoginActivity : AppCompatActivity() {
     private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
@@ -22,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         binding.root.setOnClickListener {
             hideKeyboard()
         }
-
+        binding.vm=viewModel
         binding.btnSignup.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
