@@ -23,7 +23,7 @@ class SignUpViewmodel : ViewModel() {
     val _pw: MutableLiveData<String> = MutableLiveData("")
     val _name: MutableLiveData<String> = MutableLiveData("")
     val _skill: MutableLiveData<String> = MutableLiveData("")
-    fun signUp(id: String, password: String, name: String, skill: String) {
+    suspend fun signUp(id: String, password: String, name: String, skill: String) {
         signUpService.login(
             RequestSignUpDto(
                 id,
