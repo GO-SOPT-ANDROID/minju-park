@@ -6,7 +6,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.android.go.sopt.BuildConfig
-import org.android.go.sopt.data.Interceptor.AuthInterceptor
+import org.android.go.sopt.Interceptor.AuthInterceptor
 import org.android.go.sopt.data.service.ReqresService
 import org.android.go.sopt.data.service.SignInService
 import org.android.go.sopt.data.service.SignUpService

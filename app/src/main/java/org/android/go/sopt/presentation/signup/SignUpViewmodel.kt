@@ -3,6 +3,7 @@ package org.android.go.sopt.presentation.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import org.android.go.sopt.data.ServicePool.signUpService
 import org.android.go.sopt.data.model.request.RequestSignUpDto
 import org.android.go.sopt.data.model.response.BaseResponse
@@ -10,8 +11,10 @@ import org.android.go.sopt.data.model.response.ResponseSignUpDto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class SignUpViewmodel : ViewModel() {
+@HiltViewModel
+class SignUpViewmodel @Inject constructor() : ViewModel() {
 
     private val _signUpResult: MutableLiveData<BaseResponse<ResponseSignUpDto>> = MutableLiveData()
     val signUpResult: LiveData<BaseResponse<ResponseSignUpDto>> = _signUpResult
@@ -23,7 +26,7 @@ class SignUpViewmodel : ViewModel() {
     val _pw: MutableLiveData<String> = MutableLiveData("")
     val _name: MutableLiveData<String> = MutableLiveData("")
     val _skill: MutableLiveData<String> = MutableLiveData("")
-    suspend fun signUp(id: String, password: String, name: String, skill: String) {
+    fun signUp(id: String, password: String, name: String, skill: String) {
         signUpService.login(
             RequestSignUpDto(
                 id,
@@ -31,7 +34,7 @@ class SignUpViewmodel : ViewModel() {
                 name,
                 skill,
             ),
-        ).enqueue(object : Callback<BaseResponse<ResponseSignUpDto>>{
+        ).enqueue(object : Callback<BaseResponse<ResponseSignUpDto>> {
             override fun onResponse(
                 call: Call<BaseResponse<ResponseSignUpDto>>,
                 response: Response<BaseResponse<ResponseSignUpDto>>,

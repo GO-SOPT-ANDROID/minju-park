@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.introduce.IntroduceActivity
 import org.android.go.sopt.presentation.signup.SignUpActivity
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<LoginViewmodel>()
