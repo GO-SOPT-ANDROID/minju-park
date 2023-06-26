@@ -11,5 +11,5 @@ interface SignInService {
     @POST("sign-in")
     fun signin(
         @Body request: RequestSignInDto,
-    ): Call<BaseResponse<ResponseSignInDto>>
+    ): BaseResponse<ResponseSignInDto>
 }
