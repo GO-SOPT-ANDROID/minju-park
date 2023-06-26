@@ -3,14 +3,14 @@ package org.android.go.sopt.presentation.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import org.android.go.sopt.data.ServicePool.signUpService
 import org.android.go.sopt.data.model.request.RequestSignUpDto
 import org.android.go.sopt.data.model.response.BaseResponse
 import org.android.go.sopt.data.model.response.ResponseSignUpDto
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,29 +26,26 @@ class SignUpViewmodel @Inject constructor() : ViewModel() {
     val _pw: MutableLiveData<String> = MutableLiveData("")
     val _name: MutableLiveData<String> = MutableLiveData("")
     val _skill: MutableLiveData<String> = MutableLiveData("")
-    fun signUp(id: String, password: String, name: String, skill: String) {
-        signUpService.login(
-            RequestSignUpDto(
-                id,
-                password,
-                name,
-                skill,
-            ),
-        ).enqueue(object : Callback<BaseResponse<ResponseSignUpDto>> {
-            override fun onResponse(
-                call: Call<BaseResponse<ResponseSignUpDto>>,
-                response: Response<BaseResponse<ResponseSignUpDto>>,
-            ) {
-                if (response.isSuccessful) {
-                    _signUpResult.value = response.body()
-                } else {
-                    _errorResult.value = response.message()
-                }
-            }
-
-            override fun onFailure(call: Call<BaseResponse<ResponseSignUpDto>>, t: Throwable) {
-                _errorResult.value = t.toString()
-            }
-        })
+    fun signUp() {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                signUpService.login(
+                    RequestSignUpDto(
+                        _id.toString(),
+                        _name.toString(),
+                        _pw.toString(),
+                        _skill.toString(),
+                    ),
+                )
+            }.fold(
+                {
+                    Timber.d("로그인 조회 성공")
+                    _signUpResult.value = it
+                },
+                {
+                    Timber.e(it.message)
+                },
+            )
+        }
     }
 }

@@ -11,5 +11,5 @@ interface SignUpService {
     @POST("sign-up")
     fun login(
         @Body request: RequestSignUpDto,
-    ): Call<BaseResponse<ResponseSignUpDto>>
+    ): BaseResponse<ResponseSignUpDto>
 }
